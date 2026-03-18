@@ -28,7 +28,13 @@ def pridat_ukol():
             print("Název úkolu nemůže být prázdný.")
         else:
             break
-    ukoly.append({"nazev": nazev})
+    while True:
+        popis = input("Zadejte popis úkolu: ")
+        if popis == "":
+            print("Popis úkolu nemůže být prázdný.")
+        else:
+            break
+    ukoly.append({"nazev": nazev, "popis": popis})
     print(f"Úkol '{nazev}' byl přidán.")
 
 def zobrazit_ukoly():
@@ -37,7 +43,7 @@ def zobrazit_ukoly():
         print("Žádné úkoly.")
     else:
         for i, ukol in enumerate(ukoly, 1):
-            print(f"{i}. {ukol['nazev']}")
+            print(f"{i}. {ukol['nazev']} - {ukol['popis']}")
 
 def odstranit_ukol():
     zobrazit_ukoly()
